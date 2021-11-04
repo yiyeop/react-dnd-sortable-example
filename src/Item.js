@@ -57,21 +57,26 @@ function Item({ data, index, move }) {
         border: "1px solid black",
         margin: "4px",
         display: "flex",
+        justifyContent: "space-between",
         background: "#fff",
         opacity: isDragging ? 0 : 1
       }}
       ref={(node) => preview(drop(node))}
     >
+      {data.id} item
       <span
-        style={{ marginRight: "40px" }}
         ref={(node) => {
           componentRef.current = node;
           drag(node);
         }}
+        style={{
+          fontSize: "16px",
+          fontWeight: "bold",
+          transform: "rotate(90deg)"
+        }}
       >
-        here
+        ||
       </span>
-      {data.id}
     </div>
   );
 }
